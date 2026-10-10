@@ -215,11 +215,11 @@
       <button type="submit">Add task</button>
     </form>
 
-    <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="high">High</button>
-      <button class="filter-btn" data-filter="medium">Medium</button>
-      <button class="filter-btn" data-filter="low">Low</button>
+    <div class="filter-bar" id="filterBar" role="group" aria-label="Filter by priority">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="filter-btn" data-filter="high" aria-pressed="false">High</button>
+      <button type="button" class="filter-btn" data-filter="medium" aria-pressed="false">Medium</button>
+      <button type="button" class="filter-btn" data-filter="low" aria-pressed="false">Low</button>
     </div>
 
     <ul class="task-list" id="taskList"></ul>
@@ -305,6 +305,7 @@
       activeFilter = btn.dataset.filter;
       document.querySelectorAll('.filter-btn').forEach(function (b) {
         b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', String(b === btn));
       });
       applyFilter();
     });
