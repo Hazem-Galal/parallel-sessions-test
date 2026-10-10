@@ -1,2 +1,22 @@
+# Dependencies
 node_modules/
+
+# Runtime data (written by store.js)
 tasks.json
+
+# Environment
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+*.log
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

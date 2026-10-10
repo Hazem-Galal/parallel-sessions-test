@@ -46,6 +46,11 @@ app.use((err, req, res, next) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+// Express 5 passes listen errors (e.g. EADDRINUSE) to this callback
+app.listen(PORT, (err) => {
+  if (err) {
+    console.error(`Rappel failed to start on port ${PORT}: ${err.message}`);
+    process.exit(1);
+  }
   console.log(`Rappel running on http://localhost:${PORT}`);
 });
